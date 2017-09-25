@@ -1,0 +1,563 @@
+<!--
+	作者：444811716@qq.com
+	时间：2017-08-04
+	描述：等待框
+-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>等待框</title>
+	</head>
+
+	<body>
+		<div>0.</div>
+		<style>
+			.loading-items-0 {
+				width: 100px;
+				height: 100px;
+				background: rgba(0, 0, 0, .5);
+				position: relative;
+				display: inline-block;
+			}
+
+			.loading-item-0 {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				background-color: transparent;
+				border-radius: 50%;
+			}
+
+			.loading-items-0 .loading-item-0:nth-child(2),
+			.loading-items-0 .loading-item-0:nth-child(8) {
+				top: 20px;
+			}
+
+			.loading-items-0 .loading-item-0:nth-child(3),
+			.loading-items-0 .loading-item-0:nth-child(7) {
+				top: 40px;
+			}
+
+			.loading-items-0 .loading-item-0:nth-child(4),
+			.loading-items-0 .loading-item-0:nth-child(6) {
+				top: 60px;
+			}
+
+			.loading-items-0 .loading-item-0:nth-child(1),
+			.loading-items-0 .loading-item-0:nth-child(5) {
+				left: 40px;
+			}
+
+			.loading-items-0 .loading-item-0:nth-child(2),
+			.loading-items-0 .loading-item-0:nth-child(4) {
+				left: 60px;
+			}
+
+			.loading-items-0 .loading-item-0:nth-child(6),
+			.loading-items-0 .loading-item-0:nth-child(8) {
+				left: 20px;
+			}
+
+			.loading-items-0 .loading-item-0:nth-child(1) {
+				top: 10px;
+				animation-delay: .125s;
+				-moz-animation-delay: .125s;
+				-webkit-animation-delay: .125s;
+				-o-animation-delay: .125s;
+			}
+
+			.loading-items-0 .loading-item-0:nth-child(2) {
+				animation-delay: .25s;
+				-moz-animation-delay: .25s;
+				-webkit-animation-delay: .25s;
+				-o-animation-delay: .25s;
+			}
+
+			.loading-items-0 .loading-item-0:nth-child(3) {
+				left: 70px;
+				animation-delay: .175s;
+				-moz-animation-delay: .175s;
+				-webkit-animation-delay: .175s;
+				-o-animation-delay: .175s;
+			}
+
+			.loading-items-0 .loading-item-0:nth-child(4) {
+				animation-delay: .3s;
+				-moz-animation-delay: .3s;
+				-webkit-animation-delay: .3s;
+				-o-animation-delay: .3s;
+			}
+
+			.loading-items-0 .loading-item-0:nth-child(5) {
+				top: 70px;
+				animation-delay: .425s;
+				-moz-animation-delay: .425s;
+				-webkit-animation-delay: .425s;
+				-o-animation-delay: .425s;
+			}
+
+			.loading-items-0 .loading-item-0:nth-child(6) {
+				animation-delay: .55s;
+				-moz-animation-delay: .55s;
+				-webkit-animation-delay: .55s;
+				-o-animation-delay: .55s;
+			}
+
+			.loading-items-0 .loading-item-0:nth-child(7) {
+				left: 10px;
+				animation-delay: .675s;
+				-moz-animation-delay: .675s;
+				-webkit-animation-delay: .675s;
+				-o-animation-delay: .675s;
+			}
+
+			.loading-items-0 .loading-item-0:nth-child(8) {
+				animation-delay: .8s;
+				-moz-animation-delay: .8s;
+				-webkit-animation-delay: .8s;
+				-o-animation-delay: .8s;
+			}
+
+			.loading-item-0 {
+				animation: loadingItem0 1s infinite;
+				-moz-animation: loadingItem0 1s infinite;
+				-webkit-animation: loadingItem0 1s infinite;
+				-o-animation: loadingItem0 1s infinite;
+			}
+
+			@keyframes loadingItem0 {
+				from {
+					background: white;
+				}
+				to {
+					background: transparent;
+				}
+			}
+
+			@-moz-keyframes loadingItem0 {
+				from {
+					background: white;
+				}
+				to {
+					background: transparent;
+				}
+			}
+
+			@-webkit-keyframes loadingItem0 {
+				from {
+					background: white;
+				}
+				to {
+					background: transparent;
+				}
+			}
+
+			@-o-keyframes loadingItem0 {
+				from {
+					background: white;
+				}
+				to {
+					background: transparent;
+				}
+			}
+		</style>
+		<div class="loading-items-0">
+			<div class="loading-item-0"></div>
+			<div class="loading-item-0"></div>
+			<div class="loading-item-0"></div>
+			<div class="loading-item-0"></div>
+			<div class="loading-item-0"></div>
+			<div class="loading-item-0"></div>
+			<div class="loading-item-0"></div>
+			<div class="loading-item-0"></div>
+		</div>
+		<div>1.</div>
+		<style>
+			.loading-items-1 {
+				display: inline-flex;
+				width: 100px;
+				height: 100px;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.loading-item-1 {
+				display: inline-block;
+				width: 6px;
+				height: 20px;
+				background: gold;
+				margin: 30px 1px;
+				animation: loadingItem1 2s infinite;
+				-moz-animation: loadingItem1 2s infinite;
+				-webkit-animation: loadingItem1 2s infinite;
+				-o-animation: loadingItem1 2s infinite;
+			}
+
+			@keyframes loadingItem1 {
+				0%,
+				100% {
+					transform: scaleY(1.0);
+				}
+				50% {
+					transform: scaleY(2.0);
+				}
+			}
+
+			@-moz-keyframes loadingItem1 {
+				0%,
+				100% {
+					-moz-transform: scaleY(1.0);
+				}
+				50% {
+					-moz-transform: scaleY(2.0);
+				}
+			}
+
+			@-webkit-keyframes loadingItem1 {
+				0%,
+				100% {
+					-webkit-transform: scaleY(1.0);
+				}
+				50% {
+					-webkit-transform: scaleY(2.0);
+				}
+			}
+
+			@-o-keyframes loadingItem1 {
+				0%,
+				100% {
+					-o-transform: scaleY(1.0);
+				}
+				50% {
+					-o-transform: scaleY(2.0);
+				}
+			}
+		</style>
+		<div class="loading-items-1">
+			<div class="loading-item-1"></div>
+			<div class="loading-item-1"></div>
+			<div class="loading-item-1"></div>
+			<div class="loading-item-1"></div>
+			<div class="loading-item-1"></div>
+		</div>
+		<div>2.</div>
+		<style>
+			.loading-items-2 {
+				display: inline-flex;
+				width: 100px;
+				height: 100px;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.loading-item-2 {
+				background: lightgreen;
+				width: 50px;
+				height: 50px;
+				animation: loadingItem2 3s infinite;
+				-moz-animation: loadingItem2 3s infinite;
+				-webkit-animation: loadingItem2 3s infinite;
+				-o-animation: loadingItem2 3s infinite;
+				text-align: center;
+			}
+
+			@keyframes loadingItem2 {
+				0% {
+					transform: perspective(100px) rotateX(360deg) rotateY(360deg);
+				}
+				25% {
+					transform: perspective(100px) rotateX(180deg) rotateY(360deg);
+				}
+				50% {
+					transform: perspective(100px) rotateX(180deg) rotateY(180deg);
+				}
+				75% {
+					transform: perspective(100px) rotateX(0deg) rotateY(180deg);
+				}
+				100% {
+					transform: perspective(100px) rotateX(0deg) rotateY(360deg);
+				}
+			}
+
+			@-moz-keyframes loadingItem2 {
+				0% {
+					-moz-transform: perspective(100px) rotateX(360deg) rotateY(360deg);
+				}
+				25% {
+					-moz-transform: perspective(100px) rotateX(180deg) rotateY(360deg);
+				}
+				50% {
+					-moz-transform: perspective(100px) rotateX(180deg) rotateY(180deg);
+				}
+				75% {
+					-moz-transform: perspective(100px) rotateX(0deg) rotateY(180deg);
+				}
+				100% {
+					-moz-transform: perspective(100px) rotateX(0deg) rotateY(360deg);
+				}
+			}
+
+			@-webkit-keyframes loadingItem2 {
+				0% {
+					-webkit-transform: perspective(100px) rotateX(360deg) rotateY(360deg);
+				}
+				25% {
+					-webkit-transform: perspective(100px) rotateX(180deg) rotateY(360deg);
+				}
+				50% {
+					-webkit-transform: perspective(100px) rotateX(180deg) rotateY(180deg);
+				}
+				75% {
+					-webkit-transform: perspective(100px) rotateX(0deg) rotateY(180deg);
+				}
+				100% {
+					-webkit-transform: perspective(100px) rotateX(0deg) rotateY(360deg);
+				}
+			}
+
+			@-o-keyframes loadingItem2 {
+				0% {
+					-o-transform: perspective(100px) rotateX(360deg) rotateY(360deg);
+				}
+				25% {
+					-o-transform: perspective(100px) rotateX(180deg) rotateY(360deg);
+				}
+				50% {
+					-o-transform: perspective(100px) rotateX(180deg) rotateY(180deg);
+				}
+				75% {
+					-o-transform: perspective(100px) rotateX(0deg) rotateY(180deg);
+				}
+				100% {
+					-o-transform: perspective(100px) rotateX(0deg) rotateY(360deg);
+				}
+			}
+		</style>
+		<div class="loading-items-2">
+			<div class="loading-item-2">A</div>
+		</div>
+		<div>3.</div>
+		<style>
+			.loading-items-3 {
+				width: 100px;
+				height: 100px;
+				/*position: relative;*/
+			}
+
+			.loading-item-3 {
+				width: 50px;
+				height: 50px;
+				background-color: deepskyblue;
+				position: absolute;
+				margin: 25px;
+				border-radius: 50%;
+				opacity: .5;
+				animation: loadingItem3 2s infinite;
+				-moz-animation: loadingItem3 2s infinite;
+				-webkit-animation: loadingItem3 2s infinite;
+				-o-animation: loadingItem3 2s infinite;
+			}
+
+			.loading-items-3 .loading-item-3:nth-child(1) {
+				animation-delay: 1s;
+				-moz-animation-delay: 1s;
+				-webkit-animation-delay: 1s;
+				-o-animation-delay: 1s;
+			}
+
+			@keyframes loadingItem3 {
+				0%,
+				100% {
+					transform: scale(0, 0);
+				}
+				50% {
+					transform: scale(1, 1);
+				}
+			}
+
+			@-moz-keyframes loadingItem3 {
+				0%,
+				100% {
+					-moz-transform: scale(0, 0);
+				}
+				50% {
+					-moz-transform: scale(1, 1);
+				}
+			}
+
+			@-webkit-keyframes loadingItem3 {
+				0%,
+				100% {
+					-webkit-transform: scale(0, 0);
+				}
+				50% {
+					-webkit-transform: scale(1, 1);
+				}
+			}
+
+			@-o-keyframes loadingItem3 {
+				0%,
+				100% {
+					-o-transform: scale(0, 0);
+				}
+				50% {
+					-o-transform: scale(1, 1);
+				}
+			}
+		</style>
+		<div class="loading-items-3">
+			<div class="loading-item-3"></div>
+			<div class="loading-item-3"></div>
+		</div>
+		<div>4.</div>
+		<style>
+			.loading-items-4 {
+				width: 100px;
+				height: 100px;
+				border: 3px solid dodgerblue;
+				border-radius: 50%;
+				position: relative;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.loading-items-4 .loading-item-4 {
+				position: absolute;
+				display: block;
+				background: dodgerblue;
+			}
+
+			.loading-items-4 .loading-item-4:nth-child(1) {
+				width: 4px;
+				height: 25px;
+				top: 25px;
+				transform-origin: 2px 24px;
+				-moz-transform-origin: 2px 24px;
+				-webkit-transform-origin: 2px 24px;
+				-o-transform-origin: 2px 24px;
+				animation: loadingItem4 4s infinite linear;
+				-moz-animation: loadingItem4 4s infinite linear;
+				-webkit-animation: loadingItem4 4s infinite linear;
+				-o-animation: loadingItem4 4s infinite linear;
+			}
+
+			.loading-items-4 .loading-item-4:nth-child(2) {
+				width: 4px;
+				height: 40px;
+				top: 10px;
+				transform-origin: 2px 39px;
+				-moz-transform-origin: 2px 39px;
+				-webkit-transform-origin: 2px 39px;
+				-o-transform-origin: 2px 40px;
+				animation: loadingItem4 1s infinite linear;
+				-moz-animation: loadingItem4 1s infinite linear;
+				-webkit-animation: loadingItem4 1s infinite linear;
+				-o-animation: loadingItem4 1s infinite linear;
+			}
+
+			@keyframes loadingItem4 {
+				from {
+					-webkit-transform: rotateZ(0deg);
+				}
+				to {
+					-webkit-transform: rotateZ(360deg);
+				}
+			}
+
+			@-moz-keyframes loadingItem4 {
+				from {
+					-webkit-transform: rotateZ(0deg);
+				}
+				to {
+					-webkit-transform: rotateZ(360deg);
+				}
+			}
+
+			@-webkit-keyframes loadingItem4 {
+				from {
+					-webkit-transform: rotateZ(0deg);
+				}
+				to {
+					-webkit-transform: rotateZ(360deg);
+				}
+			}
+
+			@-o-keyframes loadingItem4 {
+				from {
+					-webkit-transform: rotateZ(0deg);
+				}
+				to {
+					-webkit-transform: rotateZ(360deg);
+				}
+			}
+		</style>
+		<div class="loading-items-4">
+			<div class="loading-item-4"></div>
+			<div class="loading-item-4"></div>
+		</div>
+		<div>5.</div>
+		<style>
+			.loading-items-5 {
+				width: 100px;
+				height: 100px;
+				display: inline-block;
+				padding: 20px;
+			}
+
+			.loading-items-5 .loading-item-5 {
+				position: absolute;
+				width: 60px;
+				height: 60px;
+				border: 10px solid goldenrod;
+				border-radius: 50%;
+				display: inline-block;
+				clip: rect(0px, 40px, 80px, 0px);
+			}
+
+			.loading-items-5 .loading-item-5:nth-child(1) {
+				animation: loadingItem5 2s infinite linear;
+				-moz-animation: loadingItem5 2s infinite linear;
+				-webkit-animation: loadingItem5 2s infinite linear;
+				-o-animation: loadingItem5 2s infinite linear;
+			}
+
+			.loading-items-5 .loading-item-5:nth-child(2) {
+				transform: rotateZ(225deg);
+				-moz-transform: rotateZ(225deg);
+				-webkit-transform: rotateZ(225deg);
+				-o-transform: rotateZ(225deg);
+				animation: loadingItem5a 2s infinite linear;
+				-moz-animation: loadingItem5a 2s infinite linear;
+				-webkit-animation: loadingItem5a 2s infinite linear;
+				-o-animation: loadingItem5a 2s infinite linear;
+			}
+
+			@-webkit-keyframes loadingItem5 {
+				from {
+					-webkit-transform: rotateZ(0deg);
+				}
+				to {
+					-webkit-transform: rotateZ(360deg);
+				}
+			}
+
+			@-webkit-keyframes loadingItem5a {
+				from {
+					-webkit-transform: rotateZ(225deg);
+				}
+				to {
+					-webkit-transform: rotateZ(585deg);
+				}
+			}
+		</style>
+		<div class="loading-items-5">
+			<div class="loading-item-5"></div>
+			<div class="loading-item-5"></div>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!--
+	作者：444811716@qq.com
+	时间：2017-07-26
+	描述：波浪效果
+	参考来源：http://www.cnblogs.com/coco1s/p/7197662.html
+-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>wave-波浪</title>
+		<script src="../lib/jquery/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<div>svg</div>
+		<svg width="200px" height="200px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+			<text class="liquidFillGaugeText" text-anchor="middle" font-size="42px" transform="translate(100,120)" style="fill: #000">50.0%</text>
+			<!-- Wave -->
+			<g id="wave">
+				<path id="wave-2" fill="rgba(154, 205, 50, .8)" d="M 0 100 C 133.633 85.12 51.54 116.327 200 100 A 95 95 0 0 1 0 100 Z">
+					<animate dur="5s" repeatCount="indefinite" attributeName="d" attributeType="XML" values="M0 100 C90 28, 92 179, 200 100 A95 95 0 0 1 0 100 Z;
+                                    M0 100 C145 100, 41 100, 200 100 A95 95 0 0 1 0 100 Z;
+                                    M0 100 C90 28, 92 179, 200 100 A95 95 0 0 1 0 100 Z"></animate>
+				</path>
+			</g>
+			<circle cx="100" cy="100" r="80" stroke-width="10" stroke="white" fill="transparent"></circle>
+			<circle cx="100" cy="100" r="90" stroke-width="20" stroke="yellowgreen" fill="none" class="percentage-pie-svg"></circle>
+		</svg>
+		<div>canvas</div>
+		<canvas id="canvas" height="200px"></canvas>
+		<script>
+			$(function() {
+				var canvas = $("canvas");
+				var ctx = canvas[0].getContext('2d');
+				var radians = (Math.PI / 180) * 180;
+				var startTime = Date.now();
+				var time = 2000;
+				var clockwise = 1;
+				var cp1x, cp1y, cp2x, cp2y;
+
+				// 初始状态
+				// ctx.bezierCurveTo(90, 28, 92, 179, 200, 100);
+				// 末尾状态
+				// ctx.bezierCurveTo(145, 100, 41, 100, 200, 100);
+
+				requestAnimationFrame(function waveDraw() {
+					var t = Math.min(1.0, (Date.now() - startTime) / time);
+
+					if(clockwise) {
+						cp1x = 90 + (55 * t);
+						cp1y = 28 + (72 * t);
+						cp2x = 92 - (51 * t);
+						cp2y = 179 - (79 * t);
+					} else {
+						cp1x = 145 - (55 * t);
+						cp1y = 100 - (72 * t);
+						cp2x = 41 + (51 * t);
+						cp2y = 100 + (79 * t);
+					}
+
+					ctx.clearRect(0, 0, 200, 200);
+					ctx.beginPath();
+					ctx.moveTo(0, 100);
+					// 绘制三次贝塞尔曲线
+					ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, 200, 100);
+					// 绘制圆弧
+					ctx.arc(100, 100, 100, 0, radians, 0);
+					ctx.fillStyle = "rgba(154, 205, 50, .8)";
+					ctx.fill();
+					ctx.save();
+
+					if(t == 1) {
+						startTime = Date.now();
+						clockwise = !clockwise;
+					}
+
+					requestAnimationFrame(waveDraw);
+				});
+			})
+		</script>
+		<div>css</div>
+		<style>
+			.wave-items {
+				height: 100px;
+				width: 200px;
+				background: dodgerblue;
+				position: relative;
+				overflow: hidden;
+				display: block;
+				margin-left: -50px;
+			}
+
+			.wave-items .wave-item {
+				position: absolute;
+				top: -120px;
+			}
+
+			.wave-items .wave-item::before,
+			.wave-items .wave-item::after {
+				content: "";
+				height: 200px;
+				width: 200px;
+				position: absolute;
+				background-color: white;
+				animation: rotate 10s infinite linear;
+				-moz-animation: rotate 10s infinite linear;
+				-webkit-animation: rotate 10s infinite linear;
+			}
+
+			.wave-items .wave-item::before {
+				border-radius: 44%;
+			}
+
+			.wave-items .wave-item::after {
+				opacity: .5;
+				border-radius: 43%;
+				top: 10px;
+			}
+
+			@keyframes rotate {
+				0% {
+					transform: rotateZ(0deg);
+				}
+				50% {
+					transform: rotateZ(180deg);
+				}
+				100% {
+					transform: rotateZ(360deg);
+				}
+			}
+
+			@-moz-keyframes rotate {
+				0% {
+					-moz-transform: rotateZ(0deg);
+				}
+				50% {
+					-moz-transform: rotateZ(180deg);
+				}
+				100% {
+					-moz-transform: rotateZ(360deg);
+				}
+			}
+
+			@-webkit-keyframes rotate {
+				0% {
+					-webkit-transform: rotateZ(0deg);
+				}
+				50% {
+					-webkit-transform: rotateZ(180deg);
+				}
+				100% {
+					-webkit-transform: rotateZ(360deg);
+				}
+			}
+
+			@-o-keyframes rotate {
+				0% {
+					-o-transform: rotateZ(0deg);
+				}
+				50% {
+					-o-transform: rotateZ(180deg);
+				}
+				100% {
+					-o-transform: rotateZ(360deg);
+				}
+			}
+
+			.wave-items-par {
+				width: 100px;
+				height: 100px;
+				overflow: hidden;
+				position: absolute;
+				display: block;
+				border: 1px solid dodgerblue;
+			}
+		</style>
+		<div class="wave-items-par">
+			<div class="wave-items">
+				<div class="wave-item"></div>
+			</div>
+		</div>
+	</body>
+
+</html>
